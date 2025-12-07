@@ -22,13 +22,11 @@ async function conectarDB() {
         strict: true,
         deprecationErrors: true,
       },
-
-      // Configurações 100% compatíveis com Node 22 + MongoDB
       maxPoolSize: 10,
       minPoolSize: 1,
       connectTimeoutMS: 10000,
       socketTimeoutMS: 45000,
-      keepAliveInitialDelay: 300000, // 5 min
+      keepAliveInitialDelay: 300000
     });
 
     await client.connect();
@@ -44,8 +42,6 @@ async function conectarDB() {
 
   } catch (err) {
     console.error("❌ Erro ao conectar ao MongoDB:", err);
-
-    // evita crash no Render
     setTimeout(conectarDB, 5000);
   }
 }
@@ -93,5 +89,5 @@ app.get("/check", async (req, res) => {
   }
 });
 
-// Iniciar conexão
+// ------- INICIAR -------
 conectarDB();
