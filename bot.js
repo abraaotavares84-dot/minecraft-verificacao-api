@@ -5,7 +5,7 @@ const fetch = require("node-fetch");
 const TOKEN = process.env.TOKEN;
 const CLIENT_ID = "1445631030299197492";
 const GUILD_ID = "1443498793084387370";
-const API_URL = "https://roleplay-verificacao.onrender.com"; // URL do seu Render
+const API_URL = "https://burning-lenora-rp-minecraft-4421a584.koyeb.app/"; // URL do seu Koyeb
 
 // Comando slash
 const commands = [
