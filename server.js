@@ -5,7 +5,7 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 const app = express();
 app.use(express.json());
 
-// Porta usada pelo Render
+// Porta usada pelo Render/Koyeb
 const PORT = process.env.PORT || 3000;
 
 // URI do MongoDB Atlas
@@ -45,6 +45,11 @@ async function conectarDB() {
     setTimeout(conectarDB, 5000);
   }
 }
+
+// ------- ROTA /health -------
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
 
 // ------- POST /verify -------
 app.post("/verify", async (req, res) => {
