@@ -20,11 +20,11 @@ const commands = [
     .toJSON()
 ];
 
-const bot = new Client({ intents: [GatewayIntentBits.Guilds] });
+const bot = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
 
 // Evento de login
-bot.on("clientReady", () => {
-  console.log(`Bot logado como ${bot.user.tag}`);
+bot.on("ready", () => {
+  console.log(`✅ Bot logado como ${bot.user.tag}`);
 });
 
 // Comando /verificar
